@@ -77,3 +77,11 @@ Narrow slides now use page flow. All-slides reading reuses the current seven DOM
 Actual production/320px/200% and keyboard/reading-mode checks are pending root review because this subagent's browser inventory is empty. ALL-11,ALL-16 andDECK-10 remain actual-human evidence gates. Previous failed/evaluated rounds remain retained.
 
 Source follow-up after9bb8a19: removed a redundant setPending early return that could preserve the full-screen-unavailable status after another valid edit. Exiting presentation now restores the correct live/invalid state label. The global label is plain text, not a second live region; short input announcements remain unchanged. Targeted mode-exit inspection is required; model and reading-layout behavior are unchanged.
+
+## Current root browser witness — correction source 9bb8a19, status follow-up c5e033a
+
+Root observed 45/45 passing model cases in the actual browser, all seven sections and three charts in Read all slides, and the exact 1450-kit/$100,000-fixed counterexample at application source `9bb8a19846870a7f0c216ff55c32253d6534e82a`. Full base/stress/funding were $4,400 / −$37,360 / $256,600; pilot values were $6,320 / −$6,208 / $71,980. The prominent full-first policy explanation exposed the pilot's better displayed figures. Returning to slides and selecting assumptions preserved inputs.
+
+Root also confirmed Reveal's aria-status remains aria-hidden=true and aria-live=off after mode cycling/navigation. Generic duplicate text in a DOM snapshot is not evidence of actual screen-reader duplication or successful speech behavior. The current source `c5e033a2e2df414a7d08afdc5dfd1cdac15ed9f1` only restores the live/invalid status after leaving presentation mode; targeted presenter-exit verification remains pending. No model/layout rerun is claimed for that follow-up.
+
+This is a report-only update. Full production, copy, 320px and 200% text review and final independent acceptance remain pending. ALL-11, ALL-16 and DECK-10 human evidence gates stay open; no novice or assistive-technology session is inferred from these checks.
