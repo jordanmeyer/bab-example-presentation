@@ -13,7 +13,7 @@ function clearErrors(){for(const key of keys){$(key).removeAttribute('aria-inval
 function setPending(value){pending=value;$('applied-state').textContent=value?'Unapplied edits. Slides show the last applied assumptions.':'Current assumptions applied. All figures are synthetic.';$('applied-state').classList.toggle('pending',value);$('copy-record').disabled=value;}
 function render(){
   const result=calculate(input),threshold=thresholdText(result);
-  $('profit').textContent=money(result.profit);
+  $('profit').textContent=money(result.profit);$('profit').style.setProperty('--amount-length',$('profit').textContent.length);
   $('result-condition').textContent=result.profit>0?'Surplus after the entered costs.':result.profit===0?'Exactly covers the entered costs.':'Shortfall against the entered costs.';
   for(const [id,value]of [['revenue',result.revenue],['variable',result.variable],['fixed-result',input.fixed],['contribution',result.contribution]])$(id).textContent=money(value);
   $('threshold-label').textContent=threshold.label;$('threshold-value').textContent=threshold.value;$('threshold-detail').textContent=threshold.detail;
@@ -23,6 +23,8 @@ function render(){
   $('decision-status').textContent=result.profit>0?`Current case: ${money(result.profit)} surplus. Validate demand and complete the cost picture before committing.`:result.profit===0?'Current case: exactly cost-covered. There is no buffer for lower volume or omitted costs.':`Current case: ${money(-result.profit)} shortfall. Revise the assumptions or accept an explicit loss limit before committing.`;
   $('decision-record').value=decisionRecord(input);$('copy-status').textContent='Copy includes current assumptions, arithmetic and the next validation steps.';
   renderChart();
+  // Re-activate the current index so Reveal refreshes its native live announcement.
+  deck.slide(deck.getIndices().h);
 }
 function renderChart(){
   if(deck.getIndices().h!==3)return;
