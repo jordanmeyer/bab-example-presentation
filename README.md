@@ -1,26 +1,17 @@
-# Desk / Day
+# Desk / Day — analytical presentation
 
-A six-slide analytical pitch for a fictional reusable desk-kit pop-up. Reveal.js navigation combines with a local unit-economics model, adaptive quantity sensitivity, fixed reference cases and a copyable decision record.
+A synthetic board-level product-launch recommendation. Seven Reveal.js slides compare a full launch, a staged pilot and deferral. Valid assumptions update all three charts and the recommendation immediately. The appendix, speaker notes and copied record explain the arithmetic, illustrative policy and exclusions.
 
-At the baseline,100 kits at$20 with$12 unit variable cost and$500 event fixed cost produce a$300 operating result. The smallest whole cost-covering quantity is63. The app explains what changes when contribution is zero or negative, rather than showing a misleading break-even number.
+[How this was built](BUILD-STORY.md) links the original brief and actual simulated planning conversation. [PLAN.md](PLAN.md) owns the revised model; [EVALUATION.md](EVALUATION.md) retains failed and successful checks. No institutional affiliation or endorsement is claimed.
 
-## Run
+## Run locally
 
-With Node22.19.0/npm10.9.3:
+Use the pinned Node/npm versions. Run `npm ci`, `npm test`, and `npm run build`. `npm run dev` serves the app; `npm run test:browser` exposes `/tests/`. `npm run preview` serves the built `/bab-example-presentation/` prefix. QA frame files under tests are local diagnostics and are not shipped by the deployment build.
 
-```sh
-npm ci
-npm test
-npm run build
-npm run preview -- --port 9518
-```
+## Model
 
-Open `http://127.0.0.1:9518/bab-example-presentation/`. The same41 numerical checks run in a browser at `/tests/` when `npm run test:browser -- --port 9517` is active. Fixed-width frames at `/tests/layout.html?width=320` load the actual production app.
+The default full launch earns$480,000 on40,000 kits, but its60%-volume stress loses$672,000. The staged pilot earns$264,000, loses$81,600 under stress, and needs$1.896m of base funding. An explicit$200,000 stress-loss limit and positive base-result gate select the pilot. Demand20,000 defers;60,000 permits the full launch. This is illustrative policy, not market evidence or a guaranteed outcome. Funding and operating profit are distinct; see the appendix for timing and made-to-order assumptions.
 
-Use Next/Previous or the slide selector. Focus the deck for left/right keyboard navigation. Numeric inputs keep their normal arrow behavior. Apply all four values together; pending edits retain the last valid scenario with a label and disable copying. The final record is selectable if clipboard permission is unavailable.
+## Dependencies and publication
 
-All content and data are synthetic; no remote assets, live feeds, user uploads or model services are involved. This is an independent classroom decision aid with no institutional affiliation or endorsement. Public commit attribution uses the authorized course identity Jordan Meyer <jordanmeyer@protonmail.com>.
-
-## Board-level revision
-
-The current seven-slide story compares full launch, staged pilot and deferral. Valid assumptions update immediately; three charts, an explicit model appendix and visible presentation mode support discussion. Read [How this was built](BUILD-STORY.md) and [current plan](PLAN.md) for the synthetic policy and funding assumptions. The earlier simulated planning transcript is retained as history.
+Existing exact Reveal.js6.0.2 and Vite8.3.4; local OFL EB Garamond/Open Sans fonts. Build includes package/font notices. Only ordinary main commits deploy via the existing Pages workflow after independent review. See [DEPLOYMENT.md](DEPLOYMENT.md) for live evidence.
