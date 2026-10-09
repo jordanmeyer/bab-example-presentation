@@ -7,7 +7,7 @@ import {baseline,presets,parseInputs,calculate,sensitivity,money,thresholdText,d
 const $=id=>document.getElementById(id),keys=['price','cost','quantity','fixed'];
 const el=(tag,text)=>{const node=document.createElement(tag);node.textContent=text;return node;};
 let input={...baseline},pending=false,chartWidth=0;
-const deck=new Reveal($('deck'),{embedded:true,hash:false,respondToHashChanges:false,scrollActivationWidth:null,width:'100%',height:'100%',margin:0,minScale:1,maxScale:1,center:false,keyboardCondition:'focused',transition:'none',backgroundTransition:'none',controls:false,progress:true,overview:false,help:false,pause:false,touch:false});
+const deck=new Reveal($('deck'),{embedded:true,hash:false,respondToHashChanges:false,scrollActivationWidth:null,width:'100%',height:'100%',margin:0,minScale:1,maxScale:1,center:false,keyboardCondition:()=>document.activeElement===$('deck'),transition:'none',backgroundTransition:'none',controls:false,progress:true,overview:false,help:false,pause:false,touch:false});
 function fillForm(){for(const key of keys)$(key).value=key==='quantity'?String(input[key]):(input[key]/100).toFixed(2);clearErrors();}
 function clearErrors(){for(const key of keys){$(key).removeAttribute('aria-invalid');$(`${key}-error`).textContent='';}}
 function setPending(value){pending=value;$('applied-state').textContent=value?'Unapplied edits. Slides show the last applied assumptions.':'Current assumptions applied. All figures are synthetic.';$('applied-state').classList.toggle('pending',value);$('copy-record').disabled=value;}
