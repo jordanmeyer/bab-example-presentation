@@ -10,9 +10,10 @@ A student can present a six-part argument for a fictional desk-kit pop-up, chang
 
 - [x] (2026-10-09) Actual simulated questions, proposal and confirmation recorded.
 - [x] (2026-10-09) Managed starter and approved Reveal theme selected in a new isolated folder.
-- [ ] Implement independent cents model and meaningful numerical boundary tests.
-- [ ] Implement six original slides, native controls, accessible chart/table and decision copy.
-- [ ] Verify actual production interactions and independent review; preserve failures.
+- [x] Independent cents model implemented;41/41 Node and actual browser checks pass.
+- [x] Six original slides, native controls, SVG/table and decision copy implemented.
+- [x] Coordinator production interactions/rechecks pass at f21d9f2; source/render failures preserved.
+- [ ] Receive independent reviewer final verdict.
 - [ ] Coordinator publishes only after reviewer PASS and source freshness.
 
 ## Surprises & Discoveries
@@ -62,3 +63,5 @@ Revision2026-10-09: initial confirmed design and acceptance plan before implemen
 ## Implementation checkpoint
 
 On2026-10-09 the pure model, six original slides, navigation/forms, SVG/table sensitivity, comparison and record copy were implemented.41/41 Node tests pass; clean npm ci, canonical dependency checker and production build pass. Tests9517 and production9518 are running for independent UI review. Browser/render gates remain open; no alternate browser acquisition was used when developer CUA reported no enabled surfaces.
+
+Final verification2026-10-09: coordinator actual CUA witness at f21d9f2 closes source tick/keyboard issues and rendered stale-announcement/maximum-money failures.41/41 browser tests, desktop1440 and all narrow320 slides, actual clipboard content, keyboard input/table behavior, scenario cases and native Back passed. No source or PLAN changes followed. Publication and reviewer final acceptance remain coordinator/reviewer responsibilities.
