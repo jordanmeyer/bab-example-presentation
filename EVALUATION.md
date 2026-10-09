@@ -67,3 +67,11 @@ After the initialization fix, a fresh final tab, rapid reload→slide selection 
 ## 2026-10-09 independent root review
 
 Root independently issued PASS for e51279243aa003d06db0aa80fc4f718a4f92758d after full model/policy/UI source review, actual44/44 suite and defaultpilot→typed20kdefer→60kfull$1.92m/$192k. It observed invalid price retaining values, Restore recovery, matching risk/funding table, successful rapid reload/select after the initialization correction and empty logs. It inspected320 waterfall labels/readability and independently accepted the explicit policy/boundary checks. Publication of main is authorized; live verification follows separately. This entry is report-only.
+
+## 2026-10-09 remaining-checklist correction rounds
+
+The1450-unit/$100000fixed counterexample is now an independently hand-checked regression: full base4400/stress−37360/funding256600; pilot6320/−6208/71980. Both pass and full-first governance still selects full launch. The explanation now exposes this preference and asks what strategic benefit justifies it. Copy is labeled policy recommendation; one-period/no-learning-value boundaries are explicit.45/45 Node model cases pass; dependency check, fresh npm ci and production build pass.
+
+Narrow slides now use page flow. All-slides reading reuses the current seven DOM sections/model/charts and reveals notes, clearing Reveal hidden/inert restrictions while active; slide mode restores them. Chart geometry and fonts scale together for200% text. The app supplies concise title/input statuses and disables Reveal's additional whole-slide live region; removing the old same-index slide refresh on every valid edit prevents those unnecessary refreshes. This is a source-level interaction correction, not evidence of actual screen-reader speech.
+
+Actual production/320px/200% and keyboard/reading-mode checks are pending root review because this subagent's browser inventory is empty. ALL-11,ALL-16 andDECK-10 remain actual-human evidence gates. Previous failed/evaluated rounds remain retained.

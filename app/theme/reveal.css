@@ -8,4 +8,4 @@
 .reveal .controls button.enabled { opacity: 1; }
 .reveal .slides section { box-sizing: border-box; }
 .reveal input { max-width: 100%; box-sizing: border-box; }
-@media(max-width:600px) { .reveal .slides section { font-size: 18px; } .reveal h1,.reveal h2 { font-size: 26px; } }
+@media(max-width:600px) { .reveal .slides section { font-size: 1.125rem; } .reveal h1,.reveal h2 { font-size: 1.625rem; } }

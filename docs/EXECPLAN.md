@@ -1,55 +1,70 @@
-# Restore the board-level analytical presentation
+# Explain the full-first policy and offer a document reading path
 
-Living ExecPlan under ~/.codex/PLANS.md.
+
+Living ExecPlan follows ~/.codex/PLANS.md; this pass covers remaining shared/DECK items from the revised126-item checklist. Preserve prior public source and all failed/evaluated rounds.
 
 ## Purpose / Big Picture
 
-Present a conditional launch decision the board can challenge in the room. Compare full launch, staged pilot and defer; expose economics, downside and model boundaries. Default recommendation is a$1.896m pilot, not a small pop-up.
+
+A reader can challenge the governance preference behind a recommendation, distinguish a small launch from the value of learning, and read every slide/appendix/note with current assumptions. Narrow slides use the page's scroll instead of a nested slide scrollbar. Copy is explicitly a policy recommendation, not a student decision or authorization.
 
 ## Progress
 
-- [x] 2026-10-09: Read shared/current guidance, original brief and actual app; preserve public history.
-- [x] 2026-10-09: Implement board model, seven-slide story, three charts, appendix, live controls and presenter mode.
-- [x] Final model/browser/production evaluation complete at e51279243aa003d06db0aa80fc4f718a4f92758d.
-- [x] Independent root review PASS; publication authorized.
-- [x] Root live verification passed at d3860ec855de9bd498ba1b13ffaae1f2084f9701 / Actions37966707459.
+
+- [x] Read full current checklist/shared sections, app/model/styles/tests and local Reveal accessibility behavior.
+- [x] Add full-first explanation and exact1450-unit counterexample/teaching regression.
+- [x] Add all-slides reading mode and narrow page flow, live-result/back routes, copy/persistence wording.
+- [x] Give app concise status ownership; avoid whole-slide refresh on each numeric edit. Actual screen-reader evidence stays open.
+- [ ] Checkpoint, model/build, root actual production navigation/320px/200% review; independent review before push.
 
 ## Surprises & Discoveries
 
-An initial test caught preset names overriding alternative names in object spreads (43/44 passed). Put alternative names after the input spread; retain this failed round in EVALUATION.
+
+The policy is already full-first, not an economic optimization. At1450kits/$100000fixed, the pilot has higher base result, smaller stress loss and lower cash yet full passes and is selected. The preference must be prominent rather than silently changed. Reveal6.0.2 schedules full-slide announcements even for same-index slide() calls; render currently does that on every valid input.
 
 ## Decision Log
 
-2026-10-09: Use made-to-order sales, disclosed cash assumptions and a fixed$200,000 stress-loss gate. Pilot sales30% and fixed25% are explicit assumptions. Choose full launch if both alternatives pass, pilot if only it passes, or defer. Cheap valid edits update immediately. Reuse Reveal and local SVG rather than add dependencies.
+
+2026-10-09: Retain full-first policy and explain it beside each recommendation, explicitly asking what strategic benefit justifies scale when pilot dominates displayed metrics. Use the same seven DOM sections for all-slides reading; no export subsystem or duplicated models. Single-slide narrow mode uses outer page flow; all-slides mode includes notes and current charts. App's slide-title status and short input status own announcements, with Reveal's extra whole-slide live region disabled. This source improvement is not a screen-reader certification. Optional alternative-policy assignment stays bounded prose.
 
 ## Outcomes & Retrospective
 
-Implementation and developer evidence complete; independent root PASS. Root live verification passed.
+
+Implementation complete;45/45 Node model cases, dependency check, fresh install and build pass. Root actual production, reading-mode,320px/200% and independent review remain pending. Previous44 model/browser cases and live publication remain historical. No new human-readiness claims.
 
 ## Context and Orientation
 
-app/model.js owns cents, policy, options, sensitivity and record. app/app.js owns one valid state, Reveal lifecycle, native inputs and three SVGs. app/index.html holds seven sections; app/style.css and theme files own layout/fonts. tests/model.test.js runs in Node and tests/index.html. Fixed-width QA frames remain developer tools and are not deployed.
+
+app/model.js owns arithmetic/policy/record; app/app.js owns one valid input state, Reveal and three SVGs. app/index.html holds seven sections with notes. app/style.css owns responsive flow; theme remains canonical licensed local fonts/colors. tests/model.test.js runs in Node/browser. Root has actual browser access; this subagent inventory is empty.
 
 ## Plan of Work
 
-Finish independent boundary tests and story/provenance, checkpoint relevant source, install locked dependencies and run canonical checker/build. Open test9705/tests and production9706/bab-example-presentation. Verify default/lower/stronger, live and invalid edits, all charts/slides/appendix, copy, keyboard, presenter mode, Back state, font and responsive metrics. Preserve each failed round. Report source hash and independent reviewer results before push.
+
+Add a tested conditional explanation without changing the decision rule. Rename the copy action/record and repeat the one-period/pilot-scale limits. Add reading mode using existing sections, preserving valid input/pending labels and all notes. At narrow widths, let the current slide expand naturally, with direct result/input/next routes. Scale chart geometry/text together for200% root font. Replace duplicate content announcements with concise local statuses, preserving keyboard input/navigation separation. Add bounded prediction/control/answer/limitation tasks, then freeze and run meaningful checks. Root performs actual production and responsive review before publication.
 
 ## Concrete Steps
 
-npm ci --cache /private/tmp/bab-npm-cache; npm test; canonical check-dependencies.mjs; npm run build. Serve npm run test:browser -- --port 9705 and npm run preview -- --port 9706. Copy tests/desktop.html,narrow.html,narrow390.html to dist only for local prefixed QA after build. Use actual CUA tabs and authored frames, never resize shared viewport.
+
+npm ci --cache /private/tmp/bab-npm-cache; packaged dependency checker; npm test; npm run build. Test9705/tests/; production9706/bab-example-presentation/. Copy desktop/narrow/text200 QA frames into local dist after build only. Do not alter global viewport. Save each failed round and exact reviewed checkpoint.
 
 ## Validation and Acceptance
 
-PLAN contains independently derived values. Default full480k/−672k andpilot264k/−81.6k; funding6.72m/1.896m; threshold33334. Lower20k defers;60k full1.92m/192k passes. Exact−200k stress passes, next-cent loss fails; zero base profit fails. All supported math stays safe. Inspect320/390/1440 actual sizes and every visible chart, live errors and navigation. No unchanged-source repeated tests after complete acceptance.
+
+Default remains pilot264000/−81600/funding1896000;20k defers;60k full1920000/192000. Counterexample1450/$100000fixed gives full4400/−37360/funding256600 and pilot6320/−6208/funding71980, both pass, full-first explanation visible/copied. All-slides view preserves scenario and shows three charts/seven sections/notes/appendix; switch back and navigate without losing state.320px has one document scroll;200% text retains readable labels/controls. Invalid input labels retained values and disables copy; restore works. Actual screen-reader/novice observation remain external gates.
 
 ## Idempotence and Recovery
 
-No stored data or external writes. Valid restore/presets and reload recover. Fullscreen can exit. Ordinary commits, no public rewrite; only authorized push after independent PASS.
+
+No persistence/account/system added. Reload defaults, restore and preset recover; reading/presentation modes are reversible. No dependency upgrades. Ordinary commits; root independent review before any push.
 
 ## Artifacts and Notes
 
-EVALUATION preserves previous rounds and new evidence with source freshness. Course evidence stays only in the assigned presentation revision folder. Root owns final live review.
+
+Per-ID disposition and root tasks in assigned evidence/browser-app-builder/checklist-corrections/2026-10-09/presentation. Existing EVALUATION history retained. No shared checklist/plugin/catalog edits.
 
 ## Interfaces and Dependencies
 
-Inputs are cents price/cost/fixed plus integer quantity. alternatives returns base/stress/funding/eligibility; recommendation returns selected option or null. Existing Reveal6.0.2/Vite8.3.4; local OFL fonts only.
+
+recommendation still returns choice/title/reason; reason now explains preference. One boolean reading mode controls existing section visibility, notes and chart rendering. Native HTML links offer intra-slide routes. Reveal6.0.2/Vite8.3.4 and local fonts remain pinned.
+
+Revision note: addresses remaining policy interpretation, reading/scroll ownership and bounded teaching work without adding another decision model.
