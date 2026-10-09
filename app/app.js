@@ -11,6 +11,7 @@ const slides=[...document.querySelectorAll('.slides>section')];
 $('slide-select').replaceChildren(...slides.map((slide,i)=>{const option=el('option',`${i===6?'A':String(i+1).padStart(2,'0')} · ${slide.dataset.title}`);option.value=i;return option;}));
 let input={...baseline},pending=false;
 const deck=new Reveal($('deck'),{embedded:true,hash:false,respondToHashChanges:false,scrollActivationWidth:null,width:'100%',height:'100%',margin:0,minScale:1,maxScale:1,center:false,keyboardCondition:()=>document.activeElement===$('deck'),transition:'none',backgroundTransition:'none',controls:false,progress:true,overview:false,help:false,pause:false,touch:false});
+await Promise.all([document.fonts.load('400 32px "EB Garamond"'),document.fonts.load('400 16px "Open Sans"'),document.fonts.load('600 16px "Open Sans"')]);await document.fonts.ready;await deck.initialize();
 function clearErrors(){for(const key of keys){$(key).removeAttribute('aria-invalid');$(`${key}-error`).textContent='';}}
 function fillForm(){for(const key of keys)$(key).value=String(key==='quantity'?input[key]:input[key]/100);clearErrors();}
 function setPending(value){pending=value;$('applied-state').textContent=value?'Invalid edit: all slides retain the last valid assumptions.':'Live assumptions · synthetic annual scenario';$('applied-state').classList.toggle('pending',value);$('live-state').textContent=value?'Last valid result · correct the marked field':'Current valid assumptions';$('copy-record').disabled=value;}
@@ -70,7 +71,7 @@ $('present').addEventListener('click',async()=>{if(document.body.classList.conta
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement){presentState(false);$('present').focus();}});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.body.classList.contains('presenting')){presentState(false);$('present').focus();}});
 $('notices').href=import.meta.env.BASE_URL+'THIRD-PARTY-NOTICES.txt';
-await Promise.all([document.fonts.load('400 32px "EB Garamond"'),document.fonts.load('400 16px "Open Sans"'),document.fonts.load('600 16px "Open Sans"')]);await document.fonts.ready;await deck.initialize();deck.on('slidechanged',updateSlide);fillForm();setPending(false);render();updateSlide();$('form-status').textContent='Valid changes update every slide immediately.';
+deck.on('slidechanged',updateSlide);fillForm();setPending(false);render();updateSlide();$('form-status').textContent='Valid changes update every slide immediately.';document.querySelector('main').inert=false;$('loading').hidden=true;
 const resize=new ResizeObserver(renderCharts);resize.observe($('deck'));
 window.addEventListener('pageshow',()=>requestAnimationFrame(()=>{fillForm();setPending(false);updateSlide();}));
 window.addEventListener('pagehide',event=>{if(!event.persisted){resize.disconnect();deck.destroy();}});
