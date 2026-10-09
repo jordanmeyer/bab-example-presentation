@@ -4,7 +4,7 @@ import './theme/duke-tokens.css';
 import './theme/duke-fonts.css';
 import './theme/reveal.css';
 import './style.css';
-import {baseline,presets,policy,parseInputs,calculate,alternatives,recommendation,sensitivity,money,compact,thresholdText,decisionRecord} from './model.js';
+import {baseline,presets,policy,parseInputs,alternatives,recommendation,sensitivity,money,compact,thresholdText,decisionRecord} from './model.js';
 const $=id=>document.getElementById(id),keys=['price','cost','quantity','fixed'];
 const el=(tag,text)=>{const n=document.createElement(tag);n.textContent=text;return n;};
 const slides=[...document.querySelectorAll('.slides>section')];
@@ -45,7 +45,7 @@ function renderCharts(){
     svg.append(svgNode('line',{x1:left,x2:width-right,y1:y(-policy.lossLimit),y2:y(-policy.lossLimit),stroke:'#C84E00','stroke-dasharray':'6 4'}));
     const slot=(width-left-right)/3;
     rows.forEach((row,i)=>{for(const[key,j,color]of[['profit',0,'#012169'],['stress',1,'#988675']]){const value=row[key],x=left+slot*(i+.12+j*.38);svg.append(svgNode('rect',{x,y:Math.min(y(0),y(value)),width:slot*.33,height:Math.max(1,Math.abs(y(0)-y(value))),fill:color}));}svg.append(svgNode('text',{x:left+slot*(i+.5),y:height-30,'text-anchor':'middle'},i===0?'Full launch':i===1?'Pilot':'Defer'));});
-    svg.append(svgNode('text',{x:left,y:16,fill:'#012169'},'Base'),svgNode('text',{x:left+64,y:16,fill:'#66584B'},'Stress'));
+    svg.append(svgNode('rect',{x:left,y:6,width:10,height:10,fill:'#012169'}),svgNode('text',{x:left+16,y:16},'Base'),svgNode('rect',{x:left+74,y:6,width:10,height:10,fill:'#988675'}),svgNode('text',{x:left+90,y:16},'Stress'));
   }
   if(index===4){
     const rows=sensitivity(input),{svg,width,left,right,y,height}=chart('volume-chart','Launch and pilot profit as full-market demand changes','Navy full-launch and teal pilot lines. Current demand is marked by circles; exact values are in the sensitivity table.',rows.flatMap(r=>[r.profit,r.pilot])),maxQ=rows.at(-1).quantity,x=q=>left+q/maxQ*(width-left-right);
