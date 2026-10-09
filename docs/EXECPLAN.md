@@ -12,7 +12,7 @@ Present a conditional launch decision the board can challenge in the room. Compa
 - [x] 2026-10-09: Implement board model, seven-slide story, three charts, appendix, live controls and presenter mode.
 - [x] Final model/browser/production evaluation complete at e51279243aa003d06db0aa80fc4f718a4f92758d.
 - [x] Independent root review PASS; publication authorized.
-- [ ] Live verification after publication.
+- [x] Root live verification passed at d3860ec855de9bd498ba1b13ffaae1f2084f9701 / Actions37966707459.
 
 ## Surprises & Discoveries
 
@@ -24,7 +24,7 @@ An initial test caught preset names overriding alternative names in object sprea
 
 ## Outcomes & Retrospective
 
-Implementation and developer evidence complete; independent root PASS. Live verification pending.
+Implementation and developer evidence complete; independent root PASS. Root live verification passed.
 
 ## Context and Orientation
 
