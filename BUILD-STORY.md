@@ -14,7 +14,7 @@ The default synthetic board case recommends a$1.896m staged pilot. Its$264,000 b
 
 Predict before changing the controls. “Read all slides” presents the same current assumptions, charts, appendix and speaker notes as a document. On a narrow screen, the current slide expands in the page; “Go to the live result” and “Back to the inputs” keep the challenge slide navigable. Reload restores the board case; copy the **policy recommendation** before leaving. That record contains calculated policy, not your judgment or an approval.
 
-1. **Predict when a profitable case should pause.** In the board case, compare full-launch base/stress results with the pilot. Before selecting “Lower ·20,000,” predict whether a smaller pilot still passes. Then select “Stronger ·60,000,” and explain which gate changes.
+1. **Predict when a profitable case should pause.** In the board case, compare full-launch base/stress results with the pilot. Before selecting “Lower ·20,000,” predict whether a smaller pilot still passes. Then select “Stronger ·60,000,” and explain which gate changes. Both demand presets restore the board-case price$180, unit cost$108 and fixed cost$2.4m; changing only quantity under other edited costs may give a different answer.
 
    **Answer:** The default full launch earns$480,000 at base demand but loses$672,000 at60% volume, beyond the$200,000 loss limit. The pilot earns$264,000 at base and loses$81,600 in stress; funding is$1,896,000. At20,000 full demand, both operating options fail, so defer. At60,000, full launch earns$1,920,000 at base and$192,000 in stress, passing both gates. Stress volumes are assumptions, not probabilities or worst-case guarantees.
 
