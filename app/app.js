@@ -21,6 +21,7 @@ function render(){
   $('sensitivity-body').replaceChildren(...sensitivity(input).map(row=>{const tr=el('tr','');if(row.quantity===input.quantity)tr.className='current';tr.append(el('td',`${row.quantity.toLocaleString('en-US')}${row.quantity===input.quantity?' · current':''}`),el('td',money(row.profit)),el('td',money(row.pilot)));return tr;}));
   $('decision-record').value=decisionRecord(input);$('copy-status').textContent='Copies the current assumptions, alternatives, policy and release gates.';
   renderCharts();
+  deck.slide(deck.getIndices().h);
 }
 const svgNode=(tag,attrs,text)=>{const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n;};
 function chart(id,title,description,values,height=320){
@@ -37,7 +38,7 @@ function renderCharts(){
     const rows=[{label:'Revenue',start:0,end:full.revenue,value:full.revenue},{label:'Variable',start:full.revenue,end:full.revenue-full.variable,value:-full.variable},{label:'Fixed',start:full.revenue-full.variable,end:full.profit,value:-input.fixed},{label:'Result',start:0,end:full.profit,value:full.profit}];
     const {svg,width,left,right,y,height}=chart('bridge-chart','Full-launch profit waterfall',`Revenue ${money(full.revenue)}, variable cost ${money(full.variable)}, fixed cost ${money(input.fixed)}, operating result ${money(full.profit)}.`,rows.flatMap(r=>[r.start,r.end]));
     const slot=(width-left-right)/4;
-    rows.forEach((row,i)=>{const x=left+slot*(i+.12),w=slot*.76;svg.append(svgNode('rect',{x,y:Math.min(y(row.start),y(row.end)),width:w,height:Math.max(1,Math.abs(y(row.start)-y(row.end))),fill:i===3?'#1D6363':i===0?'#012169':'#988675'}),svgNode('text',{x:x+w/2,y:Math.min(y(row.start),y(row.end))-8,'text-anchor':'middle',class:'value'},compact(row.value)),svgNode('text',{x:x+w/2,y:height-30,'text-anchor':'middle'},row.label));});
+    rows.forEach((row,i)=>{const x=left+slot*(i+.12),w=slot*.76;svg.append(svgNode('rect',{x,y:Math.min(y(row.start),y(row.end)),width:w,height:Math.max(1,Math.abs(y(row.start)-y(row.end))),fill:i===3?'#1D6363':i===0?'#012169':'#988675'}),svgNode('text',{x:x+w/2,y:Math.min(y(row.start),y(row.end))-8,'text-anchor':'middle',class:'value'},width<400?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:1}).format(row.value/100).replace('-','−'):compact(row.value)),svgNode('text',{x:x+w/2,y:height-30,'text-anchor':'middle'},width<400?['Sales','Unit cost','Fixed','Result'][i]:row.label));});
   }
   if(index===2){
     const rows=[full,pilot,{name:'Defer',profit:0,stress:0}],{svg,width,left,right,y,height}=chart('risk-chart','Base and stress results by option',`Full launch ${money(full.profit)} base and ${money(full.stress)} stress; pilot ${money(pilot.profit)} base and ${money(pilot.stress)} stress; defer zero. Exact values follow in the table.`,[...rows.flatMap(r=>[r.profit,r.stress]),-policy.lossLimit]);
@@ -69,7 +70,7 @@ $('present').addEventListener('click',async()=>{if(document.body.classList.conta
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement){presentState(false);$('present').focus();}});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.body.classList.contains('presenting')){presentState(false);$('present').focus();}});
 $('notices').href=import.meta.env.BASE_URL+'THIRD-PARTY-NOTICES.txt';
-await document.fonts.ready;await deck.initialize();deck.on('slidechanged',updateSlide);fillForm();setPending(false);render();updateSlide();$('form-status').textContent='Valid changes update every slide immediately.';
+await Promise.all([document.fonts.load('400 32px "EB Garamond"'),document.fonts.load('400 16px "Open Sans"'),document.fonts.load('600 16px "Open Sans"')]);await document.fonts.ready;await deck.initialize();deck.on('slidechanged',updateSlide);fillForm();setPending(false);render();updateSlide();$('form-status').textContent='Valid changes update every slide immediately.';
 const resize=new ResizeObserver(renderCharts);resize.observe($('deck'));
 window.addEventListener('pageshow',()=>requestAnimationFrame(()=>{fillForm();setPending(false);updateSlide();}));
 window.addEventListener('pagehide',event=>{if(!event.persisted){resize.disconnect();deck.destroy();}});
