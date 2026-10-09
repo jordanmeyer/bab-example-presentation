@@ -26,14 +26,15 @@ function render(){
 }
 function renderChart(){
   if(deck.getIndices().h!==3)return;
-  const width=Math.max(240,$('chart').clientWidth),height=310,left=58,right=18,top=24,bottom=45,rows=sensitivity(input),maxQ=rows.at(-1).quantity;
+  const width=Math.max(240,$('chart').clientWidth),height=310,left=80,right=18,top=24,bottom=45,rows=sensitivity(input),maxQ=rows.at(-1).quantity;
   chartWidth=width;const min=Math.min(0,...rows.map(r=>r.profit)),max=Math.max(0,...rows.map(r=>r.profit)),span=max-min||100;
   const low=min-span*.12,high=max+span*.12,x=q=>left+q/maxQ*(width-left-right),y=c=>top+(high-c)/(high-low)*(height-top-bottom);
   const svgNode=(tag,attrs,text)=>{const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n;};
   const svg=svgNode('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-labelledby':'chart-title chart-desc'});
   svg.append(svgNode('title',{id:'chart-title'},'Operating result as quantity changes'),svgNode('desc',{id:'chart-desc'},'A line joins synthetic quantity scenarios holding price, unit variable cost and fixed cost constant. Exact quantities and dollar results are listed in the adjacent table.'));
   const compact=c=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:1}).format(c/100);
-  for(const tick of [...new Set([min,0,max])]){svg.append(svgNode('line',{x1:left,x2:width-right,y1:y(tick),y2:y(tick),stroke:tick===0?'#666666':'#d6d7d7','stroke-width':tick===0?1.5:1}),svgNode('text',{x:left-8,y:y(tick)+4,'text-anchor':'end'},compact(tick)));}
+  const ticks=[0];for(const tick of [min,max])if(ticks.every(existing=>Math.abs(y(existing)-y(tick))>=22))ticks.push(tick);
+  for(const tick of ticks){svg.append(svgNode('line',{x1:left,x2:width-right,y1:y(tick),y2:y(tick),stroke:tick===0?'#666666':'#d6d7d7','stroke-width':tick===0?1.5:1}),svgNode('text',{x:left-8,y:y(tick)+4,'text-anchor':'end'},compact(tick)));}
   for(const tick of [...new Set([0,Math.round(maxQ/2),maxQ])])svg.append(svgNode('text',{x:x(tick),y:height-22,'text-anchor':tick===0?'start':tick===maxQ?'end':'middle'},tick.toLocaleString('en-US')));
   svg.append(svgNode('text',{x:left,y:13,class:'axis-title'},'Operating result · USD'),svgNode('text',{x:width-right,y:height-3,'text-anchor':'end',class:'axis-title'},'Whole kits sold'));
   svg.append(svgNode('polyline',{points:rows.map(r=>`${x(r.quantity)},${y(r.profit)}`).join(' '),fill:'none',stroke:'#012169','stroke-width':3}));

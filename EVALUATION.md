@@ -18,4 +18,4 @@ Verify all six slides at desktop and320/390 frames, progress/nav, focused input 
 
 ## Preserved failures
 
-None observed in this presentation yet. Any actual failure and its recheck will be appended rather than replaced. Current source reviewed; rendered output unverified.
+Independent source review found a supported near-zero tick collision: price$10/cost$0/quantity10,000/fixed$99,999.99 produces a one-cent positive endpoint next to the zero label. Both tick positions differed by about0.00002px. The chart now always retains zero and omits another y-axis tick within22px. Exact values remain in the table. The left gutter increased to80px to accommodate the maximum-loss compact label; actual narrow rendering remains to be witnessed. No arithmetic changed. Current source reviewed; rendered output unverified.
