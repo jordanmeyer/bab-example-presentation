@@ -20,3 +20,7 @@ Open `http://127.0.0.1:9518/bab-example-presentation/`. The same41 numerical che
 Use Next/Previous or the slide selector. Focus the deck for left/right keyboard navigation. Numeric inputs keep their normal arrow behavior. Apply all four values together; pending edits retain the last valid scenario with a label and disable copying. The final record is selectable if clipboard permission is unavailable.
 
 All content and data are synthetic; no remote assets, live feeds, user uploads or model services are involved. This is an independent classroom decision aid with no institutional affiliation or endorsement. Public commit attribution uses the authorized course identity Jordan Meyer <jordanmeyer@protonmail.com>.
+
+## Board-level revision
+
+The current seven-slide story compares full launch, staged pilot and deferral. Valid assumptions update immediately; three charts, an explicit model appendix and visible presentation mode support discussion. Read [How this was built](BUILD-STORY.md) and [current plan](PLAN.md) for the synthetic policy and funding assumptions. The earlier simulated planning transcript is retained as history.

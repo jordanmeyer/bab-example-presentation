@@ -1,67 +1,54 @@
-# Build an interactive unit-economics pitch
+# Restore the board-level analytical presentation
 
-This living ExecPlan follows ~/.codex/PLANS.md. It is self-contained for the isolated presentation example.
+Living ExecPlan under ~/.codex/PLANS.md.
 
 ## Purpose / Big Picture
 
-A student can present a six-part argument for a fictional desk-kit pop-up, change four assumptions, inspect exact operating results and sensitivity, and copy a conditional decision record. It demonstrates local interactivity, not live external business data. At the agreed baseline the user sees$300 operating result and63 whole units to cover costs.
+Present a conditional launch decision the board can challenge in the room. Compare full launch, staged pilot and defer; expose economics, downside and model boundaries. Default recommendation is a$1.896m pilot, not a small pop-up.
 
 ## Progress
 
-- [x] (2026-10-09) Actual simulated questions, proposal and confirmation recorded.
-- [x] (2026-10-09) Managed starter and approved Reveal theme selected in a new isolated folder.
-- [x] Independent cents model implemented;41/41 Node and actual browser checks pass.
-- [x] Six original slides, native controls, SVG/table and decision copy implemented.
-- [x] Coordinator production interactions/rechecks pass at f21d9f2; source/render failures preserved.
-- [ ] Receive independent reviewer final verdict.
-- [ ] Coordinator publishes only after reviewer PASS and source freshness.
+- [x] 2026-10-09: Read shared/current guidance, original brief and actual app; preserve public history.
+- [x] 2026-10-09: Implement board model, seven-slide story, three charts, appendix, live controls and presenter mode.
+- [ ] Checkpoint and complete final model/browser/production evaluation.
+- [ ] Independent root review and authorized publication.
 
 ## Surprises & Discoveries
 
-None yet. Browser availability is currently limited in the developer's CUA session after an interrupted prior task; coordinator has an active surface for independent observations. Source review is not counted as rendered verification.
+An initial test caught preset names overriding alternative names in object spreads (43/44 passed). Put alternative names after the input spread; retain this failed round in EVALUATION.
 
 ## Decision Log
 
-The student confirmed bounded inputs, exact cents and no demand response. The zero-fixed-cost cases use minimum non-loss quantity wording, with explicit distinctions for zero and negative contribution. The six slides retain fixed reference cases while current inputs drive sensitivity and the copied decision. Reveal.js is the only runtime library; an eight-point local SVG plot needs no chart dependency. Pending edits retain but label last applied results and disable copying. Decisions agreed2026-10-09.
+2026-10-09: Use made-to-order sales, disclosed cash assumptions and a fixed$200,000 stress-loss gate. Pilot sales30% and fixed25% are explicit assumptions. Choose full launch if both alternatives pass, pilot if only it passes, or defer. Cheap valid edits update immediately. Reuse Reveal and local SVG rather than add dependencies.
 
 ## Outcomes & Retrospective
 
-Planning complete. Implementation and review remain.
+Implementation complete; final rendered evidence and independent review pending.
 
 ## Context and Orientation
 
-The root is /private/tmp/bab-recipe-examples-2026-10-09/presentation. app/model.js will validate string inputs, calculate integer-cent results, and build bounded sensitivity points and record text. app/app.js will own Reveal lifecycle, native forms and render updates. app/index.html will contain .reveal>.slides>section markup for six slides. app/style.css and app/theme/reveal.css will provide readable unscaled slide layouts. Tests import the actual model without the DOM. Reviewer owns REVIEW.md; the developer owns other docs/source. No course or sibling app implementation is copied.
+app/model.js owns cents, policy, options, sensitivity and record. app/app.js owns one valid state, Reveal lifecycle, native inputs and three SVGs. app/index.html holds seven sections; app/style.css and theme files own layout/fonts. tests/model.test.js runs in Node and tests/index.html. Fixed-width QA frames remain developer tools and are not deployed.
 
 ## Plan of Work
 
-First implement parseInputs and calculate with explicit integer bounds and no Number parsing of money fractions. Test the agreed baseline, downside, reduced price, cent precision, invalid input and all nonpositive-contribution cases. Then create the six slides and distinct desktop/mobile layouts. The lab applies all fields together; presets are explicit. Sensitivity uses zero and ratios of current volume, rounded to whole units and deduplicated, with small-volume fallback and supported upper bound. The record states current assumptions and conditional next tests. Configure Reveal embedded, no hash/history, disabled auto narrow scroll activation, no text scaling, scoped keyboard and no transition. Use a scrollable current slide for taller content; content must not disappear below a fixed viewport. Create browser tests and fixed-width production frames; root/reviewer inspect actual output and correct real failures.
+Finish independent boundary tests and story/provenance, checkpoint relevant source, install locked dependencies and run canonical checker/build. Open test9705/tests and production9706/bab-example-presentation. Verify default/lower/stronger, live and invalid edits, all charts/slides/appendix, copy, keyboard, presenter mode, Back state, font and responsive metrics. Preserve each failed round. Report source hash and independent reviewer results before push.
 
 ## Concrete Steps
 
-In the root, install exact reveal.js6.0.2 with npm using /private/tmp/bab-npm-cache. Run npm ci with lifecycle scripts disabled, the canonical dependency checker, npm run build, and the test/production servers at the coordinator-confirmed ports. Open /tests/ in the browser and the production prefix. Run Node tests only for the pure numerical model; browser interaction claims require actual CUA observations. Keep local source in Git on main with the authorized course identity. Never push before coordinator handoff.
+npm ci --cache /private/tmp/bab-npm-cache; npm test; canonical check-dependencies.mjs; npm run build. Serve npm run test:browser -- --port 9705 and npm run preview -- --port 9706. Copy tests/desktop.html,narrow.html,narrow390.html to dist only for local prefixed QA after build. Use actual CUA tabs and authored frames, never resize shared viewport.
 
 ## Validation and Acceptance
 
-Baseline gives contribution800c, revenue200000c, variable120000c, fixed50000c, profit30000c and break-even63. At62 units profit−400c and63 units+400c. Downside50 gives−10000c. Price1800c gives10000c and84 units. Fixed0 and negative margin:0 is the only non-loss volume; zero margin/fixed0:all volumes break even; fixed positive/nonpositive margin:no finite threshold. At supported maxima arithmetic remains exact/safe. Sensitivity includes0/current, bounded unique whole units and above-current cases when possible. Invalid input never changes applied assumptions.
-
-Actual UI checks must cover six-slide navigation/progress, numeric arrows without changing slide, Enter applying the form, Escape/overview behavior, hidden-to-visible chart reentry, readable320/390/1440 layouts, exact table alternatives, clipboard content, pending/invalid state, restored history and one deck lifecycle. Check source/notices/base and render every slide. Do not claim browser or keyboard passes from source alone.
+PLAN contains independently derived values. Default full480k/−672k andpilot264k/−81.6k; funding6.72m/1.896m; threshold33334. Lower20k defers;60k full1.92m/192k passes. Exact−200k stress passes, next-cent loss fails; zero base profit fails. All supported math stays safe. Inspect320/390/1440 actual sizes and every visible chart, live errors and navigation. No unchanged-source repeated tests after complete acceptance.
 
 ## Idempotence and Recovery
 
-The app has no persistent user data or network writes. Build replaces only dist. Presets/restore recover native form edits. A reload restores baseline. Normal disposal destroys the Reveal instance; persisted history leaves it intact. Only the coordinator creates/publishes the repository.
+No stored data or external writes. Valid restore/presets and reload recover. Fullscreen can exit. Ordinary commits, no public rewrite; only authorized push after independent PASS.
 
 ## Artifacts and Notes
 
-PLANNING-CONVERSATION.md preserves the exchanged role-play text, including original spacing. EVALUATION.md will separate developer evidence, independent coordinator observations and reviewer findings. Root owns publication.
+EVALUATION preserves previous rounds and new evidence with source freshness. Course evidence stays only in the assigned presentation revision folder. Root owns final live review.
 
 ## Interfaces and Dependencies
 
-model.js exports baseline, presets, parseInputs(raw), calculate(inputs), sensitivity(inputs), money(cents) and decisionRecord(inputs). Inputs are {price,cost,quantity,fixed}, with cents for money and integer units. calculate returns revenue, variable, contribution, profit and a named threshold case. reveal.js6.0.2 and Vite8.3.4 are the only dependencies. The SVG plot and native table render one shared model result.
-
-Revision2026-10-09: initial confirmed design and acceptance plan before implementation.
-
-## Implementation checkpoint
-
-On2026-10-09 the pure model, six original slides, navigation/forms, SVG/table sensitivity, comparison and record copy were implemented.41/41 Node tests pass; clean npm ci, canonical dependency checker and production build pass. Tests9517 and production9518 are running for independent UI review. Browser/render gates remain open; no alternate browser acquisition was used when developer CUA reported no enabled surfaces.
-
-Final verification2026-10-09: coordinator actual CUA witness at f21d9f2 closes source tick/keyboard issues and rendered stale-announcement/maximum-money failures.41/41 browser tests, desktop1440 and all narrow320 slides, actual clipboard content, keyboard input/table behavior, scenario cases and native Back passed. No source or PLAN changes followed. Publication and reviewer final acceptance remain coordinator/reviewer responsibilities.
+Inputs are cents price/cost/fixed plus integer quantity. alternatives returns base/stress/funding/eligibility; recommendation returns selected option or null. Existing Reveal6.0.2/Vite8.3.4; local OFL fonts only.
