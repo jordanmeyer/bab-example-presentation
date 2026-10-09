@@ -70,6 +70,9 @@ function announceInput(text){if($('form-status').textContent!==text)$('form-stat
 
 function updateSlide(){const index=deck.getIndices().h,slide=deck.getCurrentSlide();$('slide-select').value=String(index);$('slide-status').textContent=`${index+1} / ${slides.length} · ${slide.dataset.title}`;$('previous').disabled=index===0;$('next').disabled=index===slides.length-1;$('context-note').textContent=slide.querySelector('.notes').textContent;exposeReadingSlides();renderCharts();}
 function updateInputs(){clearErrors();const parsed=parseInputs(Object.fromEntries(keys.map(key=>[key,$(key).value])));if(parsed.errors){for(const[key,message]of Object.entries(parsed.errors)){$(key).setAttribute('aria-invalid','true');$(`${key}-error`).textContent=message;}setPending(true);announceInput('Correct the marked field or restore valid values. Slides retain the last valid scenario.');return;}input=parsed.values;setPending(false);render();const rec=recommendation(input);announceInput(`${rec.title}. Proposed funding ${money(rec.choice?.cash??0)}. All slides use these valid values.`);}
+for(const link of document.querySelectorAll('a[href="#live-result"],a[href="#assumptions"]'))link.addEventListener('click',event=>{
+  event.preventDefault();event.stopPropagation();const target=$(link.hash.slice(1));target.focus({preventScroll:true});target.scrollIntoView({block:'start',inline:'nearest'});
+});
 $('assumptions').addEventListener('input',updateInputs);
 $('assumptions').addEventListener('submit',event=>{event.preventDefault();updateInputs();});
 $('restore').addEventListener('click',()=>{fillForm();setPending(false);announceInput('Restored the last valid values.');});

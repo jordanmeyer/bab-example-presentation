@@ -85,3 +85,9 @@ Root observed 45/45 passing model cases in the actual browser, all seven section
 Root also confirmed Reveal's aria-status remains aria-hidden=true and aria-live=off after mode cycling/navigation. Generic duplicate text in a DOM snapshot is not evidence of actual screen-reader duplication or successful speech behavior. The current source `c5e033a2e2df414a7d08afdc5dfd1cdac15ed9f1` only restores the live/invalid status after leaving presentation mode; targeted presenter-exit verification remains pending. No model/layout rerun is claimed for that follow-up.
 
 This is a report-only update. Full production, copy, 320px and 200% text review and final independent acceptance remain pending. ALL-11, ALL-16 and DECK-10 human evidence gates stay open; no novice or assistive-technology session is inferred from these checks.
+
+## Retained production failure — intraslide links at c5e033a
+
+At actual319px production, root selected Challenge the assumptions and activated Go to the live result with Enter. Its target remained1332px below the frame top in an1100px-high frame; focus stayed on the anchor. A pointer click also left the target out of view and focused the deck. The current slide expanded in page flow correctly, so overflow layout was not the cause. Source inspection confirms Reveal intercepts hash anchors at the slides container and interprets an element ID as navigation to its containing slide.
+
+The two local input/result links now prevent native hash navigation and stop that click from reaching Reveal, explicitly focus their existing tabindex=-1 target without an implicit scroll, then scroll its start into view. The same browser operation handles desktop slide scrolling, narrow outer-page flow and Read all slides. Ordinary input focus is untouched. Targeted real keyboard/pointer, both directions and reading/slide checks are pending root; no model rerun is required for this link-only correction.
